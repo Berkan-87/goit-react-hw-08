@@ -8,18 +8,18 @@
 // import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 
 // function App() {
-//   return (
-//     <>
-//       <Toaster position="top-right" />
-//       <Routes>
-//   <Route path="/" element={<HomePage />} />
-//   <Route path="/register" element={<RestrictedRoute component={RegistrationPage} />} />
-//   <Route path="/login" element={<RestrictedRoute component={LoginPage} />} />
-//   <Route path="/contacts" element={<PrivateRoute component={ContactsPage} />} />
-// </Routes>
-//     </>
-//   );
-// }
+//    return (
+//      <>
+//        <Toaster position="top-right" />
+//        <Routes>
+//    <Route path="/" element={<HomePage />} />
+//    <Route path="/register" element={<RestrictedRoute component={RegistrationPage} />} />
+//    <Route path="/login" element={<RestrictedRoute component={LoginPage} />} />
+//    <Route path="/contacts" element={<PrivateRoute component={ContactsPage} />} />
+//  </Routes>
+//      </>
+//    );
+//  }
 
 // export default App;
 
@@ -34,6 +34,8 @@ function App() {
     </Router>
   );
 }
+
+
 
 export default App;
 
