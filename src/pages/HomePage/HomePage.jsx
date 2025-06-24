@@ -13,9 +13,9 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   return (
     <div>
-      <h1>Добро пожаловать!</h1>
+      <h1>Welcome to your contact book!</h1>
       <p>
-        <Link to="/register">Перейти к регистрации</Link>
+        <Link to="/register" style={{ color: 'red', fontSize: '30px' }}>👉 Go to Registration</Link>
       </p>
     </div>
   );

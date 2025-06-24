@@ -15,12 +15,12 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-      toast.error(`${name} уже есть в контактах!`);
+      toast.error(`${name} Already in contacts!`);
       return;
     }
 
     dispatch(addContact({ id: nanoid(), name, number }));
-    toast.success(`Контакт ${name} добавлен!`);
+    toast.success(`Contact ${name} Successfully added!`);
 
     setName('');
     setNumber('');

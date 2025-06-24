@@ -9,7 +9,7 @@ import filtersReducer from './filters/filtersSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'], // Сохраняем только токен
+  whitelist: ['token'], 
 };
 
 const rootReducer = combineReducers({

@@ -25,12 +25,12 @@
 
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import RoutesComponent from './routes';  // Импортируем переименованный компонент маршрутов
+import RoutesComponent from './routes';  
 
 function App() {
   return (
     <Router>
-      <RoutesComponent />  {/* Подключаем маршруты с новым именем */}
+      <RoutesComponent />  
     </Router>
   );
 }

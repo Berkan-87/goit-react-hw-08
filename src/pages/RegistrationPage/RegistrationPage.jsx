@@ -9,7 +9,7 @@ const RegistrationPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Formik для формы регистрации
+  
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -17,22 +17,22 @@ const RegistrationPage = () => {
       password: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required('Имя обязательно'),
-      email: Yup.string().email('Неверный формат email').required('Email обязателен'),
-      password: Yup.string().min(6, 'Пароль должен содержать минимум 6 символов').required('Пароль обязателен'),
+      name: Yup.string().required('Name is required'),
+      email: Yup.string().email('Invalid email format').required('Email is required'),
+      password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
     }),
     onSubmit: async (values, { setSubmitting }) => {
         try {
           const { name, email, password } = values;
           const resultAction = await dispatch(register({ name, email, password }));
           if (register.fulfilled.match(resultAction)) {
-            toast.success('Регистрация прошла успешно!');
+            toast.success('Registration successful!');
             navigate('/contacts');
           } else {
-            toast.error('Ошибка при регистрации');
+            toast.error('Registration error');
           }
         } catch {
-          toast.error('Что-то пошло не так!');
+          toast.error('Something went wrong!');
         } finally {
           setSubmitting(false);
         }
@@ -42,14 +42,15 @@ const RegistrationPage = () => {
 
   return (
     <div className="registration-form">
-      <h2>Регистрация</h2>
+      <h2>Registration</h2>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor="name">Имя</label>
+          <label htmlFor="name">Name</label>
           <input
             id="name"
             type="text"
             name="name"
+            placeholder="Enter your name"
             onChange={formik.handleChange}
             value={formik.values.name}
           />
@@ -62,6 +63,7 @@ const RegistrationPage = () => {
             id="email"
             type="email"
             name="email"
+            placeholder="Enter your email"
             onChange={formik.handleChange}
             value={formik.values.email}
           />
@@ -69,18 +71,19 @@ const RegistrationPage = () => {
         </div>
         
         <div>
-          <label htmlFor="password">Пароль</label>
+          <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
             name="password"
+            placeholder="Create a password"
             onChange={formik.handleChange}
             value={formik.values.password}
           />
           {formik.touched.password && formik.errors.password && <div>{formik.errors.password}</div>}
         </div>
         
-        <button type="submit" disabled={formik.isSubmitting}>Зарегистрироваться</button>
+        <button type="submit" disabled={formik.isSubmitting}>Sign up</button>
       </form>
     </div>
   );

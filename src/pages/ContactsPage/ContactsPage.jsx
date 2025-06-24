@@ -48,8 +48,8 @@ const ContactsPage = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  if (loading) return <p>Загрузка...</p>;
-  if (error) return <p>Ошибка: {error}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
@@ -65,7 +65,7 @@ const ContactsPage = () => {
           ))}
         </ul>
       ) : (
-        <p>Нет контактов. Добавьте свой первый контакт.</p>
+        <p>No contacts yet. Add your first contact.</p>
       )}
     </div>
   );

@@ -7,9 +7,9 @@ axios.defaults.baseURL = 'https://67bb6127fbe0387ca139ea86.mockapi.io';
 export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_, thunkAPI) => {
   try {
     const state = thunkAPI.getState();
-    const token = state.auth.token;  // Получаем токен из состояния
+    const token = state.auth.token;  
 
-    // Добавляем токен в заголовок запроса
+    
     const { data } = await axios.get('/contacts', {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -17,7 +17,7 @@ export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_, thu
     });
     return data;
   } catch (error) {
-    toast.error('Ошибка загрузки контактов!');
+    toast.error('Failed to load contacts!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -25,18 +25,18 @@ export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_, thu
 export const addContact = createAsyncThunk('contacts/addContact', async (contact, thunkAPI) => {
   try {
     const state = thunkAPI.getState();
-    const token = state.auth.token;  // Получаем токен из состояния
+    const token = state.auth.token;  
 
-    // Добавляем токен в заголовок запроса
+    
     const { data } = await axios.post('/contacts', contact, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    toast.success(`Контакт ${contact.name} добавлен!`);
+    toast.success(`Contact ${contact.name} added successfully!`);
     return data;
   } catch (error) {
-    toast.error('Ошибка добавления контакта!');
+    toast.error('Error adding contact!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -44,18 +44,18 @@ export const addContact = createAsyncThunk('contacts/addContact', async (contact
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (contactId, thunkAPI) => {
   try {
     const state = thunkAPI.getState();
-    const token = state.auth.token;  // Получаем токен из состояния
+    const token = state.auth.token;  
 
-    // Добавляем токен в заголовок запроса
+    
     await axios.delete(`/contacts/${contactId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    toast.success('Контакт удален!');
+    toast.success('Contact deleted!');
     return contactId;
   } catch (error) {
-    toast.error('Ошибка удаления контакта!');
+    toast.error('Error deleting contact!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });

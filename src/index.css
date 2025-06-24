@@ -99,6 +99,7 @@ input, button {
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s ease;
+  color: #242424;
 }
 
 input {

@@ -1,4 +1,4 @@
-import { Routes as RouterRoutes, Route, Navigate } from 'react-router-dom'; // Переименуем Routes
+import { Routes as RouterRoutes, Route, Navigate } from 'react-router-dom'; 
 import { useSelector } from 'react-redux';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';

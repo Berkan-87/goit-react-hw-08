@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store, persistor } from './redux/store'; // Импортируем persistor
-import { PersistGate } from 'redux-persist/integration/react'; // Импортируем PersistGate
+import { store, persistor } from './redux/store'; 
+import { PersistGate } from 'redux-persist/integration/react'; 
 import App from './App';
 import './index.css';
 
