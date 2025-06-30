@@ -1,46 +1,18 @@
-// import React from 'react';
-// import { useSelector } from 'react-redux';
-// import ContactForm from '../../components/ContactForm/ContactForm';  // форма для добавления контактов
-// import { selectContacts } from '../../redux/contacts/contactsSlice';  // селектор для получения контактов
-
-// const ContactsPage = () => {
-//   // Получаем список контактов из Redux
-//   const contacts = useSelector(selectContacts);
-
-//   return (
-//     <div>
-//       <h1>Contacts Page</h1>
-//       <p>Здесь будет ваша телефонная книга.</p>
-
-//       <ContactForm />  {/* Форма для добавления контактов */}
-      
-//       {/* Если контакты есть, отображаем их */}
-//       {contacts.length > 0 ? (
-//         <ul>
-//           {contacts.map((contact) => (
-//             <li key={contact.id}>
-//               {contact.name}: {contact.number}
-//             </li>
-//           ))}
-//         </ul>
-//       ) : (
-//         <p>Нет контактов. Добавьте свой первый контакт.</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ContactsPage;
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../../redux/contacts/contactsOps';
-import { selectContacts, selectLoading, selectError } from '../../redux/contacts/contactsSlice';
+import { selectLoading, selectError } from '../../redux/contacts/contactsSlice';
+
+import { AppBar } from '../../components/AppBar/AppBar';
+import { AuthNav } from '../../components/AuthNav/AuthNav';
+import { Navigation } from '../../components/Navigation/Navigation';
+import { UserMenu } from '../../components/UserMenu/UserMenu';
 import ContactForm from '../../components/ContactForm/ContactForm';
+import ContactList from '../../components/ContactList/ContactList';
+import SearchBox from '../../components/SearchBox/SearchBox';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
@@ -53,20 +25,23 @@ const ContactsPage = () => {
 
   return (
     <div>
-      <h1>Contacts Page</h1>
-      <ContactForm />
-      
-      {contacts.length > 0 ? (
-        <ul>
-          {contacts.map((contact) => (
-            <li key={contact.id}>
-              {contact.name}: {contact.number}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No contacts yet. Add your first contact.</p>
-      )}
+      <AppBar />
+      <Navigation />
+      <UserMenu />
+      <AuthNav />
+
+      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Contacts Page</h1>
+
+      <SearchBox />
+
+      <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start', padding: '0 40px' }}>
+        <div style={{ flex: 1 }}>
+          <ContactForm />
+        </div>
+        <div style={{ flex: 2 }}>
+          <ContactList />
+        </div>
+      </div>
     </div>
   );
 };

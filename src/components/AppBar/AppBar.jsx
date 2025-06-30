@@ -8,10 +8,10 @@ import styles from './AppBar.module.css';
 export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return (
-    <header className={styles.header}>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
-  );
+  // return (
+  //   <header className={styles.header}>
+  //     <Navigation />
+  //     {isLoggedIn ? <UserMenu /> : <AuthNav />}
+  //   </header>
+  // );
 };
