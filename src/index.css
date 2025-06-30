@@ -153,3 +153,33 @@ button:hover {
   letter-spacing: 0.05em;
   color: rgb(211, 118, 118);
 }
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  form,
+  .ContactList {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  input,
+  button {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .ContactList .ContactItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

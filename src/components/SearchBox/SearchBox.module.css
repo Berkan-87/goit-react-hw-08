@@ -29,3 +29,16 @@
     padding: 16px 24px; 
     margin-right: 250px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        margin-right: 0;
+        padding: 12px;
+    }
+
+    .input {
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
